@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research - Tanish Samir Desai</title>
+  <meta name="description" content="Research work and publications" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.ico" />
+</head>
+<body>
+  <main class="container">
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+    <header class="header">
+      <h1 class="name">Tanish Samir Desai</h1>
+      <p class="contact">
+        <a href="mailto:tanishdesai37@gmail.com">tanishdesai37@gmail.com</a>
+        <span class="sep">|</span>
+        Vadodara, India
+      </p>
+      <p class="links">
+        <a id="link-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">|</span>
+        <a id="link-github" href="#" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">|</span>
+        <a id="link-scholar" href="#" target="_blank" rel="noopener">Google Scholar</a>
+        <span class="sep">|</span>
+        <a id="link-resume" href="#" target="_blank" rel="noopener">Resume</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>Research</h2>
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <a class="item-title" href="https://dl.acm.org/doi/abs/10.1145/3731545.3735119" target="_blank" rel="noopener">GPU Power Cap Optimization (HPDC '25 – Best Poster Award)</a>
+            <span class="item-sub">ACM HPDC '25 Symposium, Notre Dame, USA</span>
+          </div>
+          <div class="item-meta">2025</div>
+        </div>
+        <ul class="bullets">
+          <li>Designed an ML-driven framework for dynamic GPU power cap tuning, targeting performance-per-watt maximization under strict energy budgets.</li>
+          <li>Evaluated on 20+ workloads from Rodinia and Parboil, the system delivered up to 18% higher throughput compared to NVIDIA's default power management, while maintaining the same average power draw.</li>
+          <li>In multi-GPU cluster tests, this translated to 15–20% energy savings per node, which at HPC data center scale can mean millions of dollars in yearly savings.</li>
+          <li>This work earned the Best Poster Award at HPDC '25 and highlighted the role of AI in sustainable high-performance computing.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <a class="item-title" href="https://ieeexplore.ieee.org/abstract/document/10849425/" target="_blank" rel="noopener">GPU Power Consumption Prediction (ICTAI '24)</a>
+            <span class="item-sub">36th IEEE ICTAI</span>
+          </div>
+          <div class="item-meta">2024</div>
+        </div>
+        <ul class="bullets">
+          <li>Built a static analysis–based prediction framework for GPU power usage that avoids the need for physical measurements.</li>
+          <li>Tested tree-based models, neural networks, and domain adaptation methods across six CUDA benchmark suites.</li>
+          <li>The best-performing approach, domain adaptation, achieved >90% prediction accuracy when generalizing from older GPUs (Pascal, Volta) to newer NVIDIA architectures (Ampere, Hopper).</li>
+          <li>This reduces the profiling time from hours of hardware measurements to a few seconds of static analysis, directly benefiting both researchers optimizing kernels and data centers monitoring energy efficiency.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <a class="item-title" href="https://ieeexplore.ieee.org/abstract/document/10898724/" target="_blank" rel="noopener">GPU Temperature Prediction (HiPC '24)</a>
+            <span class="item-sub">31st IEEE HiPC</span>
+          </div>
+          <div class="item-meta">2024</div>
+        </div>
+        <ul class="bullets">
+          <li>Developed an LSTM-based model to forecast GPU temperature by capturing complex temporal patterns in workload behavior.</li>
+          <li>Unlike static models, this approach adapts to runtime variations, providing more accurate and fine-grained predictions.</li>
+          <li>The impact is in proactive thermal management—reducing throttling, improving reliability, and extending hardware lifespan for data centers and HPC clusters.</li>
+        </ul>
+      </div>
+      <p class="links">
+        <a id="link-scholar-inline" href="#" target="_blank" rel="noopener">View on Google Scholar</a>
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>
+        <a id="link-resume-inline" href="#" target="_blank" rel="noopener">Download my resume</a>
+        <span class="sep">|</span>
+        © <span id="year"></span> Tanish Samir Desai
+      </p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

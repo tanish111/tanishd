@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog - Tanish Samir Desai</title>
+  <meta name="description" content="Blog posts about systems, virtualization, and open-source engineering" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.ico" />
+</head>
+<body>
+  <main class="container">
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+    <header class="header">
+      <h1 class="name">Tanish Samir Desai</h1>
+      <p class="contact">
+        <a href="mailto:tanishdesai37@gmail.com">tanishdesai37@gmail.com</a>
+        <span class="sep">|</span>
+        Vadodara, India
+      </p>
+      <p class="links">
+        <a id="link-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">|</span>
+        <a id="link-github" href="#" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">|</span>
+        <a id="link-scholar" href="#" target="_blank" rel="noopener">Google Scholar</a>
+        <span class="sep">|</span>
+        <a id="link-resume" href="#" target="_blank" rel="noopener">Resume</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>Blog</h2>
+      <p class="item-detail">I write about systems, virtualization, and open-source engineering.</p>
+      
+      <article class="blog-post">
+        <div class="blog-post-meta">
+          Published on January 15, 2025
+        </div>
+        <h3 class="blog-post-title">The Phantom Project of Google Summer of Code: My Journey Beyond the Recognition and Stipend</h3>
+        
+        <div class="blog-post-content">
+          <p>In May 2025, I faced one of the toughest choices of my student life. I had been selected for Google Summer of Code (GSoC) to work on QEMU, one of the most critical open-source projects powering modern cloud providers. But just days before the program began, I discovered that my campus internship rules at JPMorgan Chase & Co. wouldn't allow any "second job"—even an open-source initiative. The legal department made it clear: continuing with GSoC could mean a policy violation.</p>
+
+          <p>That left me with two choices: withdraw from GSoC completely, losing the project, mentorship, and Google's stipend, or walk away from the "official" program but still contribute out of sheer passion. I chose the second. I wrote to my mentor, Paolo Bonzini, explaining that I wanted to continue unpaid, just to complete the work. His response was simple but powerful: "Yes, of course you can. It's a pity that you won't get paid, but I guess it's a contribution you can put on your CV."</p>
+
+          <p>And that's how my phantom project began—outside the GSoC framework, but with the same rigor, same weekly calls, and even more freedom. Over the summer of 2025, I built and upstreamed patches that reshaped QEMU's tracing infrastructure:</p>
+
+          <ul>
+            <li><strong>Rust Tracing Backend:</strong> I built the entire Rust tracing infrastructure for QEMU by extending its tracetool. This enabled tracepoints for Rust-based device models like the PL011 UART and added support for the most widely used tracing backends — SimpleTrace, Syslog, Log, and Ftrace. This means future QEMU developers can write devices in Rust and still get full tracing capabilities, seamlessly integrating with existing workflows — a step toward safer systems programming in one of the most widely used virtualization platforms.</li>
+            
+            <li><strong>Cross-Platform Improvements:</strong> I contributed performance patches that improved macOS build stability and simplified backend generation.</li>
+            
+            <li><strong>Optimized SimpleTrace:</strong> By removing six redundant assembly instructions per tracepoint, I made QEMU's tracing faster and more efficient.</li>
+          </ul>
+
+          <p>These contributions may sound niche, but for developers building cloud infrastructure, they make day-to-day debugging and performance tuning more reliable. In a way, this work became the backbone of my technical identity: contributing to the backbone of the cloud itself.</p>
+
+          <p>Looking back, not having the "Google" tag or stipend never felt like a loss. If anything, it made me double down on why I was doing this in the first place: not for the line on my résumé, but for the love of open source and the thrill of building something that thousands of developers will use for years.</p>
+
+          <p>That's why I call it The Phantom Project of GSoC: invisible to Google's official records, but very real in its impact on me—and, I hope, on QEMU.</p>
+        </div>
+        
+        <div class="blog-post-links">
+          <a href="https://patchwork.ozlabs.org/project/qemu-devel/list/?series=474374" target="_blank" rel="noopener">Trace Tool Patch Series</a>
+          <a href="https://patchwork.ozlabs.org/project/qemu-devel/list/?series=&submitter=90522&state=&q=&archive=&delegate=" target="_blank" rel="noopener">My Patchwork Tree</a>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p>
+        <a id="link-resume-inline" href="#" target="_blank" rel="noopener">Download my resume</a>
+        <span class="sep">|</span>
+        © <span id="year"></span> Tanish Samir Desai
+      </p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
