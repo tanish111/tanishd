@@ -229,6 +229,34 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 
+/* White Paper Button Styling */
+.white-paper-button {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--muted);
+  background-color: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+}
+
+.white-paper-button:hover {
+  color: var(--text);
+  background-color: #f9fafb;
+  border-color: var(--text);
+  text-decoration: none;
+}
+
+.white-paper-button::before {
+  content: "📄";
+  margin-right: 4px;
+  font-size: 11px;
+}
+
 @media (min-width: 900px) {
   h1 { font-size: 32px; }
 }
