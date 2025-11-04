@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     linkedin: 'https://www.linkedin.com/in/tanish-desai-73161b24a/',
     github: 'https://github.com/tanish111',
     scholar: 'https://scholar.google.com/citations?user=LepFP6UAAAAJ&hl=en',
-    resume: 'https://drive.google.com/file/d/1NG1lxxxly6U-kxjz1ZqBp_LqBeg_czjF/view?usp=sharing'
+    resume: 'https://drive.google.com/file/d/1O3mUBuE4jUiXtE_UVTbiCJyGxjH5clRA/view?usp=sharing'
   };
 
   const setHref = (id, href) => { const el = document.getElementById(id); if (el) el.href = href; };
