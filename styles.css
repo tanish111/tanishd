@@ -257,6 +257,438 @@ a:hover { text-decoration: underline; }
   font-size: 11px;
 }
 
+/* Progress Bar Section */
+.progress-section {
+  margin: 40px 0;
+  padding: 30px 0;
+  overflow: visible;
+}
+
+.progress-title {
+  text-align: center;
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 700;
+  margin: 18px 0 0 0;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-style: italic;
+}
+
+.progress-title::before {
+  content: '"';
+  color: var(--muted);
+}
+
+.progress-title::after {
+  content: '"';
+  color: var(--muted);
+}
+
+.progress-container {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.progress-track {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: #9ca3af;
+  border-radius: 2px;
+  overflow: visible;
+  margin-bottom: 35px;
+  margin-top: 75px;
+  box-shadow: 
+    0 0 6px rgba(192, 192, 192, 0.3),
+    0 0 12px rgba(192, 192, 192, 0.2);
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #000000;
+  border-radius: 2px;
+  box-shadow: 
+    0 0 8px rgba(192, 192, 192, 1),
+    0 0 16px rgba(192, 192, 192, 0.9),
+    0 0 24px rgba(192, 192, 192, 0.7),
+    0 0 32px rgba(192, 192, 192, 0.5),
+    0 0 40px rgba(192, 192, 192, 0.3);
+  animation: progressGlow 2s ease-in-out infinite alternate;
+  transition: width 1.5s ease-out;
+}
+
+@keyframes progressGlow {
+  from {
+    box-shadow: 
+      0 0 8px rgba(192, 192, 192, 1),
+      0 0 16px rgba(192, 192, 192, 0.9),
+      0 0 24px rgba(192, 192, 192, 0.7),
+      0 0 32px rgba(192, 192, 192, 0.5),
+      0 0 40px rgba(192, 192, 192, 0.3);
+  }
+  to {
+    box-shadow: 
+      0 0 12px rgba(192, 192, 192, 1),
+      0 0 20px rgba(192, 192, 192, 1),
+      0 0 32px rgba(192, 192, 192, 0.8),
+      0 0 44px rgba(192, 192, 192, 0.6),
+      0 0 56px rgba(192, 192, 192, 0.4);
+  }
+}
+
+.checkpoint-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+
+.checkpoint-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.checkpoint-label-start {
+  text-align: left;
+  flex: 0 0 auto;
+}
+
+.checkpoint-label-mid {
+  text-align: center;
+  flex: 1;
+}
+
+.checkpoint-label-end {
+  text-align: right;
+  flex: 0 0 auto;
+}
+
+.energy-note {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  flex: 0 0 auto;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.arrow-spacer {
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 2px;
+  flex: 0 0 auto;
+}
+
+.checkpoint {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkpoint-start {
+  left: 0%;
+}
+
+.checkpoint-mid {
+  left: 50%;
+}
+
+.checkpoint-end {
+  left: 100%;
+}
+
+.checkpoint-marker {
+  width: 12px;
+  height: 12px;
+  background-color: #000000;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 8px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(192, 192, 192, 0.6),
+    0 0 16px rgba(255, 255, 255, 0.4);
+  animation: dotGlow 2s ease-in-out infinite alternate;
+  z-index: 10;
+}
+
+@keyframes dotGlow {
+  from {
+    box-shadow: 
+      0 0 8px rgba(255, 255, 255, 0.9),
+      0 0 12px rgba(192, 192, 192, 0.6),
+      0 0 16px rgba(255, 255, 255, 0.4);
+    transform: scale(1);
+  }
+  to {
+    box-shadow: 
+      0 0 12px rgba(255, 255, 255, 1),
+      0 0 18px rgba(192, 192, 192, 0.8),
+      0 0 24px rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+  }
+}
+
+.milestone {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.milestone-1 {
+  left: 15%;
+}
+
+.milestone-2 {
+  left: 40%;
+}
+
+.milestone-flag {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;
+  line-height: 1;
+  color: #000000;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  animation: flagWave 3s ease-in-out infinite;
+  transform-origin: bottom left;
+}
+
+@keyframes flagWave {
+  0%, 100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) rotate(-3deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(3deg);
+  }
+}
+
+.milestone-text {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 500;
+  white-space: normal;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 2px 0;
+  width: 150px;
+  line-height: 1.3;
+}
+
+.milestone-text:hover {
+  color: var(--link);
+  text-decoration: none;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.milestone-award {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.award-trophy {
+  font-size: 12px;
+  filter: grayscale(100%) brightness(0);
+}
+
+.award-text {
+  font-size: 9px;
+  color: var(--muted);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.award-text:hover {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+.progress-labels {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  min-height: 20px;
+  gap: 12px;
+}
+
+.beginning-label {
+  font-weight: 600;
+  color: var(--muted);
+  flex: 0 0 auto;
+}
+
+.goal-label {
+  font-weight: 600;
+  color: var(--muted);
+  flex: 0 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .progress-section {
+    padding: 20px 0;
+    overflow: visible;
+  }
+
+  .progress-container {
+    padding: 0 15px;
+  }
+
+  .progress-title {
+    font-size: 12px;
+    padding: 0 10px;
+    margin: 24px 0 0 0;
+  }
+
+  .milestone-text {
+    font-size: 10px;
+    width: 100px;
+    bottom: 42px;
+  }
+
+  .milestone-flag {
+    font-size: 28px;
+  }
+
+  .award-text {
+    font-size: 8px;
+    white-space: normal;
+    max-width: 100px;
+    line-height: 1.2;
+  }
+
+  .award-trophy {
+    font-size: 10px;
+  }
+
+  .milestone-award {
+    top: 6px;
+    flex-wrap: wrap;
+    max-width: 100px;
+  }
+
+  .checkpoint-label {
+    font-size: 14px;
+  }
+
+  .progress-track {
+    margin-top: 60px;
+  }
+
+  .milestone-1 {
+    left: 18%;
+  }
+
+  .milestone-2 {
+    left: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-section {
+    padding: 15px 0;
+    overflow: visible;
+  }
+
+  .progress-container {
+    padding: 0 15px;
+  }
+
+  .progress-title {
+    font-size: 10px;
+    padding: 0 5px;
+    line-height: 1.3;
+    margin: 28px 0 0 0;
+  }
+
+  .milestone-text {
+    font-size: 8px;
+    width: 70px;
+    bottom: 36px;
+    line-height: 1.2;
+  }
+
+  .milestone-flag {
+    font-size: 22px;
+  }
+
+  .award-text {
+    font-size: 7px;
+    white-space: normal;
+    max-width: 80px;
+    line-height: 1.2;
+  }
+
+  .award-trophy {
+    font-size: 8px;
+  }
+
+  .milestone-award {
+    top: 5px;
+    flex-wrap: wrap;
+    max-width: 80px;
+  }
+
+  .checkpoint-label {
+    font-size: 11px;
+  }
+
+  .progress-track {
+    margin-top: 50px;
+    margin-bottom: 28px;
+  }
+
+  .milestone-1 {
+    left: 20%;
+  }
+
+  .milestone-2 {
+    left: 40%;
+  }
+
+  .checkpoint-marker {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #ffffff;
+  }
+}
+
 @media (min-width: 900px) {
   h1 { font-size: 32px; }
 }

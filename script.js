@@ -19,4 +19,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const ictai = document.getElementById('ictai-paper');
   if (ictai) ictai.href = links.scholar;
+
+  // Progress Bar Animation
+  const progressBar = document.getElementById('progressBar');
+  
+  if (progressBar) {
+    // Set initial progress (you can change this value, e.g., 35 for 35%)
+    let currentProgress = 40; // This represents where you are now (ends at second flag)
+    
+    // Animate progress bar
+    const animateProgress = () => {
+      progressBar.style.width = currentProgress + '%';
+    };
+    
+    // Start animation after a short delay
+    setTimeout(() => {
+      animateProgress();
+    }, 300);
+  }
 });

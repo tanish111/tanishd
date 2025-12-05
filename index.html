@@ -10,6 +10,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="assets/favicon.ico" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
 </head>
 <body>
   <main class="container">
@@ -36,6 +46,46 @@
         I am interested in <strong>High-Performance Computing</strong>, <strong>GPU Systems</strong>, <strong>Sustainable Computing</strong>, and <strong>Open Source</strong> development.
         I enjoy exploring system-level optimizations, contributing to performance and energy-efficiency tools, and working at the intersection of <strong>computer systems</strong> and <strong>machine learning</strong>.
       </p>
+      
+      <div class="progress-section">
+        <div class="progress-container">
+          <div class="progress-track">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="checkpoint checkpoint-start">
+              <div class="checkpoint-marker"></div>
+            </div>
+            <div class="checkpoint checkpoint-mid">
+              <div class="checkpoint-marker"></div>
+            </div>
+            <div class="checkpoint checkpoint-end">
+              <div class="checkpoint-marker"></div>
+            </div>
+            <div class="milestone milestone-1">
+              <div class="milestone-flag">⚑</div>
+              <a href="research.html" class="milestone-text">Reduced 12% Energy Consumed by GPUs</a>
+              <div class="milestone-award">
+                <span class="award-trophy">🏆</span>
+                <a href="https://hpdc.sci.utah.edu/2025/" target="_blank" rel="noopener" class="award-text">Best Poster ACM HPDC 2025</a>
+              </div>
+            </div>
+            <div class="milestone milestone-2">
+              <div class="milestone-flag">⚑</div>
+              <a href="projects.html" class="milestone-text">LLM Agent to generate Low Energy Kernels</a>
+              <div class="milestone-award">
+                <span class="award-trophy">🏆</span>
+                <a href="https://www.linkedin.com/posts/astera-labs_nebula-event-at-bits-pilani-hyderabad-activity-7382550674275950592-T5IO/" target="_blank" rel="noopener" class="award-text">First Prize GPU Hackathon</a>
+              </div>
+            </div>
+          </div>
+          <div class="checkpoint-labels">
+            <span class="checkpoint-label checkpoint-label-start">$e^x$</span>
+            <span class="checkpoint-label checkpoint-label-mid">$kx$</span>
+            <span class="checkpoint-label checkpoint-label-end">$c$</span>
+          </div>
+          <p class="progress-title">On a path to reducing energy consumption in high-performance computing.</p>
+        </div>
+      </div>
+
       <nav class="quicklinks">
         <a href="blog.html">Blog</a>
         <span class="sep">|</span>
