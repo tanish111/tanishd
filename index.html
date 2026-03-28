@@ -65,42 +65,122 @@
         </div>
       </div>
 
-      <div class="progress-section">
-        <div class="progress-container">
-          <div class="progress-track">
-            <div class="progress-bar" id="progressBar"></div>
-            <div class="checkpoint checkpoint-start">
-              <div class="checkpoint-marker"></div>
-            </div>
-            <div class="checkpoint checkpoint-mid">
-              <div class="checkpoint-marker"></div>
-            </div>
-            <div class="checkpoint checkpoint-end">
-              <div class="checkpoint-marker"></div>
-            </div>
-            <div class="milestone milestone-1">
-              <div class="milestone-flag">⚑</div>
-              <a href="contributions.html" class="milestone-text">Rust Tracing in QEMU (16-patch series)</a>
-              <div class="milestone-award">
-                <span class="award-trophy">🏆</span>
-                <a href="https://patchew.org/QEMU/20250919112536.141782-1-pbonzini@redhat.com/" target="_blank" rel="noopener" class="award-text">Merged — QEMU upstream</a>
-              </div>
-            </div>
-            <div class="milestone milestone-2">
-              <div class="milestone-flag">⚑</div>
-              <a href="experience.html" class="milestone-text">SWE Intern @ J.P. Morgan Chase</a>
-              <div class="milestone-award">
-                <span class="award-trophy">🏆</span>
-                <a href="https://www.linkedin.com/posts/astera-labs_nebula-event-at-bits-pilani-hyderabad-activity-7382550674275950592-T5IO/" target="_blank" rel="noopener" class="award-text">First Prize GPU Hackathon</a>
-              </div>
-            </div>
+      <div class="git-graph-section">
+        <div class="git-graph-header">
+          <span class="git-graph-title">Contributions</span>
+          <a href="contributions.html" class="git-graph-viewall">view all →</a>
+        </div>
+        <div class="git-graph">
+
+          <!-- Lane legend -->
+          <div class="gg-legend">
+            <span class="gg-legend-dot" style="background:#2563eb;"></span><span class="gg-legend-name" style="color:#2563eb;">QEMU</span>
+            <span class="gg-legend-dot" style="background:#7c3aed; margin-left:16px;"></span><span class="gg-legend-name" style="color:#7c3aed;">MCP Rust SDK</span>
           </div>
-          <div class="checkpoint-labels">
-            <span class="checkpoint-label checkpoint-label-start">$e^x$</span>
-            <span class="checkpoint-label checkpoint-label-mid">$kx$</span>
-            <span class="checkpoint-label checkpoint-label-end">$c$</span>
+
+          <!-- Rows: each row = one commit -->
+          <div class="gg-row">
+            <div class="gg-date">Mar 2026</div>
+            <div class="gg-col gg-col-qemu"></div>
+            <div class="gg-col gg-col-mcp">
+              <div class="gg-dot gg-dot-mcp"></div>
+              <div class="gg-line gg-line-mcp"></div>
+            </div>
+            <div class="gg-msg"><a href="https://github.com/modelcontextprotocol/rust-sdk/pull/706" target="_blank" rel="noopener">#706 docs: add -p mcp-server-examples to build cmd</a></div>
           </div>
-          <p class="progress-title">Building systems software, one patch at a time.</p>
+
+          <div class="gg-row">
+            <div class="gg-date">Jan 2026</div>
+            <div class="gg-col gg-col-qemu"></div>
+            <div class="gg-col gg-col-mcp">
+              <div class="gg-dot gg-dot-mcp"></div>
+              <div class="gg-line gg-line-mcp"></div>
+            </div>
+            <div class="gg-msg"><a href="https://github.com/modelcontextprotocol/rust-sdk/pull/598" target="_blank" rel="noopener">#598 fix: OpenID Connect discovery per spec-2025-11-25</a></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">Dec 2025</div>
+            <div class="gg-col gg-col-qemu"></div>
+            <div class="gg-col gg-col-mcp">
+              <div class="gg-dot gg-dot-mcp"></div>
+              <div class="gg-line gg-line-mcp"></div>
+            </div>
+            <div class="gg-msg"><a href="https://github.com/modelcontextprotocol/rust-sdk/pull/570" target="_blank" rel="noopener">#570 feat: SEP-991 CIMD support for URL-based client IDs</a></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">Nov 2025</div>
+            <div class="gg-col gg-col-qemu"></div>
+            <div class="gg-col gg-col-mcp">
+              <div class="gg-dot gg-dot-mcp"></div>
+              <div class="gg-line gg-line-mcp"></div>
+            </div>
+            <div class="gg-msg"><a href="https://github.com/modelcontextprotocol/rust-sdk/pull/551" target="_blank" rel="noopener">#551 feat: SEP-986 tool name format spec</a> &nbsp;<a href="https://github.com/modelcontextprotocol/rust-sdk/pull/541" target="_blank" rel="noopener">#541 fix: WASI linker errors</a></div>
+          </div>
+
+          <!-- merge point divider -->
+          <div class="gg-row gg-row-merge">
+            <div class="gg-date">Sep 2025</div>
+            <div class="gg-col gg-col-qemu">
+              <div class="gg-dot gg-dot-qemu"></div>
+              <div class="gg-line gg-line-qemu"></div>
+            </div>
+            <div class="gg-col gg-col-mcp">
+              <div class="gg-line gg-line-mcp-faint"></div>
+            </div>
+            <div class="gg-msg"><a href="https://patchew.org/QEMU/20250919112536.141782-1-pbonzini@redhat.com/" target="_blank" rel="noopener"><strong>PATCH 00/16 — Rust Tracing Support for QEMU merged</strong></a> <span class="gg-tag">16 patches</span></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">Aug 2025</div>
+            <div class="gg-col gg-col-qemu">
+              <div class="gg-dot gg-dot-qemu"></div>
+              <div class="gg-line gg-line-qemu"></div>
+            </div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-msg"><a href="https://patchew.org/QEMU/20250806150539.2871-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH v2 0/2 — tracetool: remove no_check_foo() and if(true) blocks</a></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">Jul 2025</div>
+            <div class="gg-col gg-col-qemu">
+              <div class="gg-dot gg-dot-qemu"></div>
+              <div class="gg-line gg-line-qemu"></div>
+            </div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-msg"><a href="https://patchew.org/QEMU/20250722114352.3624-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH — tracetool: remove unused vcpu property</a></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">Jun 2025</div>
+            <div class="gg-col gg-col-qemu">
+              <div class="gg-dot gg-dot-qemu"></div>
+              <div class="gg-line gg-line-qemu"></div>
+            </div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-msg"><a href="https://patchew.org/QEMU/20250612122718.18863-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH v2 — utils/log: add qemu_log_timestamp()</a> &nbsp; <a href="https://patchew.org/QEMU/20250616201222.6416-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">tracetool cleanup</a></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">May 2025</div>
+            <div class="gg-col gg-col-qemu">
+              <div class="gg-dot gg-dot-qemu"></div>
+              <div class="gg-line gg-line-qemu"></div>
+            </div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-msg"><a href="https://patchew.org/QEMU/20250528192528.3968-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH — trace/simple: separate hot paths <span class="gg-tag">−6 asm · −23 MB</span></a></div>
+          </div>
+
+          <div class="gg-row gg-row-last">
+            <div class="gg-date">Mar 2025</div>
+            <div class="gg-col gg-col-qemu">
+              <div class="gg-dot gg-dot-qemu"></div>
+            </div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-msg"><a href="https://patchew.org/QEMU/20250319023036.71493-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH — fix duplicate symbol error on MacOS build</a></div>
+          </div>
+
         </div>
       </div>
 
