@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open Source Contributions - Tanish Samir Desai</title>
+  <meta name="description" content="Open source contributions to QEMU and MCP Rust SDK" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <style>
+    .contrib-tree {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contrib-repo {
+      margin-bottom: 32px;
+    }
+
+    .contrib-repo-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .contrib-repo-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .contrib-repo-link {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .contrib-repo-count {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .tree-root {
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid var(--border);
+    }
+
+    .tree-item {
+      position: relative;
+      padding: 8px 0 8px 16px;
+      margin: 0;
+    }
+
+    .tree-item::before {
+      content: "";
+      position: absolute;
+      left: -2px;
+      top: 50%;
+      width: 14px;
+      height: 2px;
+      background: var(--border);
+    }
+
+    .tree-connector {
+      position: absolute;
+      left: -2px;
+      top: 0;
+      width: 14px;
+      height: 50%;
+      border-left: 2px solid var(--border);
+      border-bottom: 2px solid var(--border);
+      border-radius: 0 0 0 4px;
+      background: transparent;
+    }
+
+    .patch-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .patch-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .patch-title a:hover {
+      color: var(--link);
+      text-decoration: underline;
+    }
+
+    .patch-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 3px;
+    }
+
+    .patch-date {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .patch-tag {
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    .tag-merged {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .tag-series {
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .tag-fix {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .tag-feat {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
+
+    .tag-cleanup {
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 28px;
+      padding: 14px 18px;
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-number {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <a href="index.html" class="back-button">Back to Home</a>
+
+    <header class="header">
+      <h1 class="name">Tanish Samir Desai</h1>
+      <p class="contact">
+        <a href="mailto:tanishdesai37@gmail.com">tanishdesai37@gmail.com</a>
+        <span class="sep">|</span>
+        Vadodara, India
+      </p>
+      <p class="links">
+        <a id="link-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">|</span>
+        <a id="link-github" href="#" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">|</span>
+        <a id="link-scholar" href="#" target="_blank" rel="noopener">Google Scholar</a>
+        <span class="sep">|</span>
+        <a id="link-resume" href="#" target="_blank" rel="noopener">Resume</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>Open Source Contributions</h2>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-number">20+</span>
+          <span class="stat-label">Total Contributions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">13</span>
+          <span class="stat-label">QEMU Patches</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">7</span>
+          <span class="stat-label">MCP Rust SDK PRs</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Projects</span>
+        </div>
+      </div>
+
+      <!-- QEMU Section -->
+      <div class="contrib-repo" id="qemu">
+        <div class="contrib-repo-header">
+          <span class="contrib-repo-name">QEMU</span>
+          <a class="contrib-repo-link" href="https://patchew.org/search?q=project%3AQEMU+from%3ATanish+" target="_blank" rel="noopener">patchew.org ↗</a>
+          <span class="contrib-repo-count">13 patches</span>
+        </div>
+        <p class="section-intro">
+          Collaborated with <a href="https://www.linkedin.com/in/paolobonzini" target="_blank" rel="noopener">Paolo Bonzini</a> and <a href="https://vmsplice.net/" target="_blank" rel="noopener">Stefan Hajnoczi</a> to build Rust tracing infrastructure and optimize the SimpleTrace backend.
+        </p>
+        <ul class="contrib-tree">
+          <li class="contrib-repo">
+            <div class="tree-root">
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250806150539.2871-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH v2 0/2] tracetool: remove no_check_foo() and if(true){..} blocks
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Aug 6, 2025</span>
+                  <span class="patch-tag tag-cleanup">cleanup</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250804112039.16377-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH 0/2] tracetool: remove no_check_foo() and if(true){..} blocks
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Aug 4, 2025</span>
+                  <span class="patch-tag tag-cleanup">cleanup</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250722114352.3624-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH] tracetool: removed the unused vcpu property
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Jul 22, 2025</span>
+                  <span class="patch-tag tag-cleanup">cleanup</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250625123023.33428-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH v3] tracetool: generates conditional checks when needed
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Jun 25, 2025</span>
+                  <span class="patch-tag tag-feat">codegen</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250620143720.3143-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH v2 0/3] tracetool: cleanup "if(true)" check from trace_foo()
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Jun 20, 2025</span>
+                  <span class="patch-tag tag-cleanup">cleanup</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250617183619.13581-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH v2] tracetool: removed the unused vcpu property
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Jun 17, 2025</span>
+                  <span class="patch-tag tag-cleanup">cleanup</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250616201222.6416-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH 0/3] tracetool: cleanup "if(true)" check from trace_foo()
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Jun 16, 2025</span>
+                  <span class="patch-tag tag-cleanup">cleanup</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250612122718.18863-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH v2] utils/log: add qemu_log_timestamp()
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Jun 12, 2025</span>
+                  <span class="patch-tag tag-feat">feature</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250609182044.21703-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH] utils/log: add qemu_log_timestamp() to encapsulate timestamp logging
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Jun 9, 2025</span>
+                  <span class="patch-tag tag-feat">feature</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250601181231.3461-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH 0/3] trace: separate cold path of trace
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Jun 1, 2025</span>
+                  <span class="patch-tag tag-series">perf</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250528192528.3968-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH] trace/simple: separate hot paths of tracing functions
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">May 28, 2025</span>
+                  <span class="patch-tag tag-series">perf · −6 asm/tracepoint · −23 MB</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250519185108.14412-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH] trace/simple: separate hot paths of tracing functions (v1)
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">May 19, 2025</span>
+                  <span class="patch-tag tag-series">perf</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://patchew.org/QEMU/20250319023036.71493-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">
+                    [PATCH] Fix duplicate symbol error on MacOS build
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Mar 19, 2025</span>
+                  <span class="patch-tag tag-fix">bugfix</span>
+                </div>
+              </div>
+
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- MCP Rust SDK Section -->
+      <div class="contrib-repo" id="mcp">
+        <div class="contrib-repo-header">
+          <span class="contrib-repo-name">modelcontextprotocol/rust-sdk</span>
+          <a class="contrib-repo-link" href="https://github.com/modelcontextprotocol/rust-sdk/pulls?q=is%3Apr+author%3Atanish111+is%3Aclosed" target="_blank" rel="noopener">github.com ↗</a>
+          <span class="contrib-repo-count">7 merged PRs</span>
+        </div>
+        <p class="section-intro">
+          Spec compliance work and build infrastructure improvements for the official Rust SDK for the Model Context Protocol.
+        </p>
+        <ul class="contrib-tree">
+          <li class="contrib-repo">
+            <div class="tree-root">
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://github.com/modelcontextprotocol/rust-sdk/pull/706" target="_blank" rel="noopener">
+                    #706 — docs(readme): add -p mcp-server-examples to build command
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Mar 4, 2026</span>
+                  <span class="patch-tag tag-merged">merged</span>
+                  <span class="patch-tag tag-cleanup">docs</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://github.com/modelcontextprotocol/rust-sdk/pull/598" target="_blank" rel="noopener">
+                    #598 — fix: add OpenID Connect discovery support per spec-2025-11-25 §4.3
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Jan 9, 2026</span>
+                  <span class="patch-tag tag-merged">merged</span>
+                  <span class="patch-tag tag-feat">spec compliance</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://github.com/modelcontextprotocol/rust-sdk/pull/585" target="_blank" rel="noopener">
+                    #585 — fix: correct redirect URI in client-metadata.json
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Dec 15, 2025</span>
+                  <span class="patch-tag tag-merged">merged</span>
+                  <span class="patch-tag tag-fix">bugfix</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://github.com/modelcontextprotocol/rust-sdk/pull/570" target="_blank" rel="noopener">
+                    #570 — Add SEP-991 (CIMD) support for URL-based client IDs
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Dec 10, 2025</span>
+                  <span class="patch-tag tag-merged">merged</span>
+                  <span class="patch-tag tag-feat">feature</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://github.com/modelcontextprotocol/rust-sdk/pull/564" target="_blank" rel="noopener">
+                    #564 — chore: replace paste with pastey
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Dec 1, 2025</span>
+                  <span class="patch-tag tag-merged">merged</span>
+                  <span class="patch-tag tag-cleanup">build</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://github.com/modelcontextprotocol/rust-sdk/pull/551" target="_blank" rel="noopener">
+                    #551 — Implementation of SEP-986: Specify Format for Tool Names
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Nov 24, 2025</span>
+                  <span class="patch-tag tag-merged">merged</span>
+                  <span class="patch-tag tag-feat">spec compliance</span>
+                </div>
+              </div>
+
+              <div class="tree-item">
+                <div class="patch-title">
+                  <a href="https://github.com/modelcontextprotocol/rust-sdk/pull/541" target="_blank" rel="noopener">
+                    #541 — fix: exclude WASI example from workspace to avoid linker errors
+                  </a>
+                </div>
+                <div class="patch-meta">
+                  <span class="patch-date">Nov 18, 2025</span>
+                  <span class="patch-tag tag-merged">merged</span>
+                  <span class="patch-tag tag-fix">build fix</span>
+                </div>
+              </div>
+
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>
+        <a id="link-resume-inline" href="#" target="_blank" rel="noopener">Download my resume</a>
+        <span class="sep">|</span>
+        © <span id="year"></span> Tanish Samir Desai
+      </p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

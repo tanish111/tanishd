@@ -257,6 +257,69 @@ a:hover { text-decoration: underline; }
   font-size: 11px;
 }
 
+/* Open Source Highlight Cards */
+.oss-highlight {
+  margin: 28px 0 8px;
+}
+
+.oss-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.oss-card {
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.oss-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.oss-card-title a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.oss-card-title a:hover {
+  color: var(--link);
+}
+
+.oss-card-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.oss-card-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.oss-card-link {
+  font-size: 13px;
+  color: var(--link);
+  text-decoration: none;
+}
+
+.oss-card-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .oss-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Progress Bar Section */
 .progress-section {
   margin: 40px 0;

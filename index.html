@@ -43,10 +43,28 @@
 
     <section class="hero">
       <p>
-        I am interested in <strong>High-Performance Computing</strong>, <strong>GPU Systems</strong>, <strong>Sustainable Computing</strong>, and <strong>Open Source</strong> development.
-        I enjoy exploring system-level optimizations, contributing to performance and energy-efficiency tools, and working at the intersection of <strong>computer systems</strong> and <strong>machine learning</strong>.
+        I am a software engineer interested in <strong>Systems Programming</strong>, <strong>Open Source</strong> development, and <strong>Compiler &amp; Toolchain</strong> infrastructure.
+        I enjoy working at the systems level — building performance-critical software, contributing to large open-source codebases, and shipping reliable backend services.
       </p>
-      
+
+      <div class="oss-highlight">
+        <h2 style="margin-top:0;">Open Source</h2>
+        <div class="oss-cards">
+          <div class="oss-card">
+            <div class="oss-card-title"><a href="https://patchew.org/search?q=project%3AQEMU+from%3ATanish+" target="_blank" rel="noopener">QEMU</a></div>
+            <div class="oss-card-sub">Systems / Hypervisor</div>
+            <p class="oss-card-desc">Built full <strong>Rust Tracing Support</strong> for QEMU (<a href="https://patchew.org/QEMU/20250919112536.141782-1-pbonzini@redhat.com/" target="_blank" rel="noopener">PATCH 00/16</a>) — 4 backend implementations via C FFI. Also optimized SimpleTrace eliminating ~6 assembly instructions per tracepoint and reducing build size by 23 MB.</p>
+            <a href="contributions.html#qemu" class="oss-card-link">View all patches →</a>
+          </div>
+          <div class="oss-card">
+            <div class="oss-card-title"><a href="https://github.com/modelcontextprotocol/rust-sdk" target="_blank" rel="noopener">MCP Rust SDK</a></div>
+            <div class="oss-card-sub">Developer Tooling / Rust</div>
+            <p class="oss-card-desc">Added <strong>CIMD support</strong> (<a href="https://github.com/modelcontextprotocol/rust-sdk/pull/570" target="_blank" rel="noopener">#570</a>), OpenID Connect discovery (<a href="https://github.com/modelcontextprotocol/rust-sdk/pull/598" target="_blank" rel="noopener">#598</a>), tool name format spec (<a href="https://github.com/modelcontextprotocol/rust-sdk/pull/551" target="_blank" rel="noopener">#551</a>), and routine build fixes across 7 merged PRs.</p>
+            <a href="contributions.html#mcp" class="oss-card-link">View all PRs →</a>
+          </div>
+        </div>
+      </div>
+
       <div class="progress-section">
         <div class="progress-container">
           <div class="progress-track">
@@ -62,15 +80,15 @@
             </div>
             <div class="milestone milestone-1">
               <div class="milestone-flag">⚑</div>
-              <a href="research.html" class="milestone-text">Reduced 12% Energy Consumed by GPUs</a>
+              <a href="contributions.html" class="milestone-text">Rust Tracing in QEMU (16-patch series)</a>
               <div class="milestone-award">
                 <span class="award-trophy">🏆</span>
-                <a href="https://hpdc.sci.utah.edu/2025/" target="_blank" rel="noopener" class="award-text">Best Poster ACM HPDC 2025</a>
+                <a href="https://patchew.org/QEMU/20250919112536.141782-1-pbonzini@redhat.com/" target="_blank" rel="noopener" class="award-text">Merged — QEMU upstream</a>
               </div>
             </div>
             <div class="milestone milestone-2">
               <div class="milestone-flag">⚑</div>
-              <a href="projects.html" class="milestone-text">LLM Agent to generate Low Energy Kernels</a>
+              <a href="experience.html" class="milestone-text">SWE Intern @ J.P. Morgan Chase</a>
               <div class="milestone-award">
                 <span class="award-trophy">🏆</span>
                 <a href="https://www.linkedin.com/posts/astera-labs_nebula-event-at-bits-pilani-hyderabad-activity-7382550674275950592-T5IO/" target="_blank" rel="noopener" class="award-text">First Prize GPU Hackathon</a>
@@ -82,7 +100,7 @@
             <span class="checkpoint-label checkpoint-label-mid">$kx$</span>
             <span class="checkpoint-label checkpoint-label-end">$c$</span>
           </div>
-          <p class="progress-title">On a path to reducing energy consumption in high-performance computing.</p>
+          <p class="progress-title">Building systems software, one patch at a time.</p>
         </div>
       </div>
 
@@ -90,6 +108,8 @@
         <a href="blog.html">Blog</a>
         <span class="sep">|</span>
         <a href="experience.html">Experience</a>
+        <span class="sep">|</span>
+        <a href="contributions.html">Open Source</a>
         <span class="sep">|</span>
         <a href="projects.html">Projects</a>
         <span class="sep">|</span>
