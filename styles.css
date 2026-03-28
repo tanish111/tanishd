@@ -320,6 +320,151 @@ a:hover { text-decoration: underline; }
   }
 }
 
+/* Git Graph Section */
+.git-graph-section {
+  margin: 28px 0 8px;
+}
+
+.git-graph-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.git-graph-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+  flex: 1;
+}
+
+.git-graph-viewall {
+  font-size: 13px;
+  color: var(--link);
+  text-decoration: none;
+  margin-left: 12px;
+}
+
+.git-graph-viewall:hover { text-decoration: underline; }
+
+.git-graph {
+  font-size: 13px;
+  font-family: 'Inter', system-ui, monospace;
+}
+
+.gg-lanes {
+  display: grid;
+  grid-template-columns: 68px 28px 28px 1fr;
+  align-items: center;
+  padding: 0 0 6px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2px;
+}
+
+.gg-gutter { /* date column */ }
+
+.gg-lane-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.gg-row {
+  display: grid;
+  grid-template-columns: 68px 28px 28px 1fr;
+  align-items: center;
+  min-height: 32px;
+  position: relative;
+}
+
+.gg-row:hover { background: #f9fafb; border-radius: 4px; }
+
+.gg-date {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-right: 8px;
+}
+
+.gg-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  min-height: 32px;
+}
+
+.gg-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.gg-dot-qemu  { background: #2563eb; box-shadow: 0 0 0 1px #2563eb; }
+.gg-dot-mcp   { background: #7c3aed; box-shadow: 0 0 0 1px #7c3aed; }
+
+.gg-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.gg-line-qemu        { background: #2563eb; }
+.gg-line-mcp         { background: #7c3aed; }
+.gg-line-mcp-faint   { background: #c4b5fd; }
+
+.gg-row-last .gg-line { display: none; }
+
+.gg-msg {
+  padding: 6px 0 6px 10px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.gg-msg a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.gg-msg a:hover { color: var(--link); text-decoration: underline; }
+
+.gg-tag {
+  display: inline-block;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.gg-row-merge .gg-msg a { color: var(--accent); }
+
+@media (max-width: 480px) {
+  .gg-lanes { grid-template-columns: 52px 24px 24px 1fr; }
+  .gg-row   { grid-template-columns: 52px 24px 24px 1fr; }
+  .gg-date  { font-size: 10px; }
+}
+
 /* Progress Bar Section */
 .progress-section {
   margin: 40px 0;
