@@ -68,7 +68,7 @@ a:hover { text-decoration: underline; }
 
 .hero { margin: 18px 0 8px; }
 
-.quicklinks { font-size: 14px; }
+.quicklinks { font-size: 14px; margin-top: 28px; }
 
 .item {
   padding: 10px 0 8px;
@@ -357,7 +357,7 @@ a:hover { text-decoration: underline; }
   font-family: 'Inter', system-ui, monospace;
 }
 
-.exp-section { margin: 28px 0 8px; }
+.exp-section { margin: 28px 0 28px; }
 
 .exp-card-header {
   display: flex;
