@@ -357,23 +357,27 @@ a:hover { text-decoration: underline; }
   font-family: 'Inter', system-ui, monospace;
 }
 
-.gg-lanes {
-  display: grid;
-  grid-template-columns: 68px 28px 28px 1fr;
+.gg-legend {
+  display: flex;
   align-items: center;
-  padding: 0 0 6px 0;
+  gap: 4px;
+  padding: 0 0 8px 0;
   border-bottom: 1px solid var(--border);
   margin-bottom: 2px;
 }
 
-.gg-gutter { /* date column */ }
+.gg-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
 
-.gg-lane-label {
+.gg-legend-name {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  text-align: center;
 }
 
 .gg-row {
