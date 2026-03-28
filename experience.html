@@ -57,9 +57,22 @@
           <div class="item-meta">Mar 2025 – Sep 2025</div>
         </div>
         <ul class="bullets">
-          <li>Built the <strong><a href="https://patchew.org/QEMU/20250919112536.141782-1-pbonzini@redhat.com/" target="_blank" rel="noopener">Rust tracing module</a></strong> for QEMU using <strong>Rust FFI bindings</strong>. This helped contributors trace and debug faster while building devices in Rust.</li>
-          <li>Optimized <strong>SimpleTrace</strong>, removing <strong>6 assembly instructions per tracepoint</strong> and reducing build size by <strong>23 MB</strong> on Ubuntu 22, boosting runtime efficiency.</li>
-          <li>Learned effective <strong>collaboration and code review practices</strong> through <strong>open-source contribution</strong> under mentorship from <a href="https://www.linkedin.com/in/paolobonzini" target="_blank" rel="noopener">Paolo Bonzini</a> and feedbacks from <a href="https://vmsplice.net/" target="_blank" rel="noopener">Stefan Hajnoczi</a>.</li>
+          <li>Collaborated with <a href="https://www.linkedin.com/in/paolobonzini" target="_blank" rel="noopener">Paolo Bonzini</a>, <a href="https://vmsplice.net/" target="_blank" rel="noopener">Stefan Hajnoczi</a>, and other QEMU contributors to design and implement the entire <strong><a href="https://patchew.org/QEMU/20250919112536.141782-1-pbonzini@redhat.com/" target="_blank" rel="noopener">Rust Tracing Support for QEMU</a></strong> (<a href="contributions.html#qemu">PATCH 00/16</a>) — implementing 4 of the most-used tracing backends (log, stderr, simple, ftrace) using <strong>C FFI bindings</strong> from Rust.</li>
+          <li>Optimized <strong><a href="https://patchew.org/QEMU/20250528192528.3968-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">SimpleTrace</a></strong> by separating hot and cold tracing paths, eliminating <strong>~6 redundant assembly instructions per tracepoint</strong>, reducing overall build size by <strong>~23 MB</strong> on Ubuntu 22.04, and improving runtime tracing efficiency.</li>
+          <li>Submitted <strong>13+ patches</strong> covering tracing infrastructure cleanup, code generation improvements in <code>tracetool</code>, and build fixes (MacOS duplicate symbol, Verilog autogeneration edge cases).</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head">
+          <div>
+            <span class="item-title">Model Context Protocol — Rust SDK (Open Source)</span>
+            <span class="item-sub">Open Source Contributor</span>
+          </div>
+          <div class="item-meta">Nov 2025 – Mar 2026</div>
+        </div>
+        <ul class="bullets">
+          <li>Added <strong>CIMD (SEP-991) support</strong> for URL-based client IDs (<a href="https://github.com/modelcontextprotocol/rust-sdk/pull/570" target="_blank" rel="noopener">#570</a>) and implemented <strong>OpenID Connect discovery</strong> per spec-2025-11-25 §4.3 (<a href="https://github.com/modelcontextprotocol/rust-sdk/pull/598" target="_blank" rel="noopener">#598</a>).</li>
+          <li>Contributed spec compliance work for <strong>tool name format</strong> (SEP-986, <a href="https://github.com/modelcontextprotocol/rust-sdk/pull/551" target="_blank" rel="noopener">#551</a>), redirect URI fixes, and routine build/workspace fixes across <strong>7 merged PRs</strong>.</li>
         </ul>
       </div>
       <div class="item">
