@@ -39,6 +39,67 @@
       
       <article class="blog-post">
         <div class="blog-post-meta">
+          Published on August 22, 2026
+        </div>
+        <h3 class="blog-post-title">Keeping the TLB Across Context Switches: x86 PCID Support in COCONUT-SVSM</h3>
+
+        <div class="blog-post-content">
+          <p>Last year I contributed to QEMU outside the official Google Summer of Code program. This year I came back through the front door. I was accepted into GSoC 2026 with the QEMU organization for a large, 12-week project: add x86 Process Context Identifier (PCID) support to COCONUT-SVSM, mentored by Luigi Leonardi and Jörg Rödel.</p>
+
+          <h4>Whom do you trust in the era of the cloud?</h4>
+          <p>When a workload runs in the cloud it sits on hardware you do not own, under a hypervisor you did not write. The practical question is <strong>who, exactly, is in the trusted computing base?</strong></p>
+          <p>Should you trust the guest operating system? A general-purpose kernel is millions of lines of code. A bug in a driver or a syscall path can leak the workload. Should you trust the cloud provider? They provision the host, hold admin credentials, and can attach a debugger to the hypervisor. Should you trust the hypervisor? In a conventional VM it sees guest memory in the clear, so a compromised or curious host can read keys, tokens, and customer data.</p>
+          <p>This is the question that stayed with me through my fourth year. I started looking for an answer and came across confidential computing: the idea of trusting the smallest useful layer, the hardware, and treating the OS, hypervisor, and cloud provider as untrusted. COCONUT-SVSM is built for that model: it runs inside the confidential VM and provides trusted services, such as a virtual TPM, so the guest never has to ask the host. Hardware like AMD SEV-SNP encrypts guest memory so the hypervisor cannot read it.</p>
+          <p>That was my primary reason for choosing this GSoC project. Along with the problem I was allotted, I learned a lot, and that is why trust should be done at the smallest abstraction possible.</p>
+
+          <h4>Why PCIDs exist</h4>
+          <p>A TLB entry is a cached virtual-to-physical translation. Without a tag, the CPU has no way to know which address space an entry belongs to, so reloading CR3 means invalidating the whole cache. Process Context Identifiers let the processor tag each TLB entry with the active page-table root. Unrelated tasks can then keep their translations resident across a switch, and a dead address space can be flushed by ID instead of by wiping everyone else's cache.</p>
+
+          <p>COCONUT-SVSM did not use PCIDs at all. Every task root ran untagged, so each switch paid that full-flush cost even when the outgoing and incoming tasks shared nothing. Assigning an ID per root is not a speedup by itself, it is the groundwork: it is what later allows a flush to target a single address space instead of all of them. It also creates an obligation. When a PCID is handed out again, nothing tagged with that ID may still be valid anywhere in the system, or the new owner would inherit translations from a dead page-table root.</p>
+
+          <h4>What I built</h4>
+          <p>The work followed the three phases in the proposal, with one extra kernel change that landed early.</p>
+
+          <p><strong>Phase 1 — a shared CPUID crate.</strong> I created <a href="https://github.com/coconut-svsm/cpufeature" target="_blank" rel="noopener">coconut-svsm/cpufeature</a>, a <code>no_std</code> Rust crate of x86 CPUID feature descriptors. The descriptors are generated from the X86-CPUID XML database. Upstream x86-cpuid-db has no Rust emitter and no COCONUT leaves, so I maintain a <a href="https://github.com/tanish111/x86-cpuid-db" target="_blank" rel="noopener">downstream fork</a> that adds both. Shared types go through <code>rust-common.xslt</code> into <code>common.rs</code>. All leaf constants go through <code>rustleaves.xslt</code> into <code>leaves.rs</code> as flat <code>CpuidFeature</code> values. <code>cpufeature</code> consumes those files. Call sites pass the generated constants into <code>cpu_has_feat()</code> / <code>cpu_get_feat()</code> instead of maintaining magic numbers in the kernel. Platform dispatch goes through a <code>CpuidBackend</code> trait: native and TDX use the default backend; SNP routes architectural leaves through the CPUID table and hypervisor leaves through the GHCB. Feature results are cached for the SVSM lifetime, so a hypervisor cannot change the CPUID answer after boot.</p>
+
+          <ul>
+            <li><a href="https://github.com/coconut-svsm/cpufeature/pull/1" target="_blank" rel="noopener">cpufeature#1</a> — initial crate for x86 CPUID feature descriptors (merged)</li>
+            <li><a href="https://github.com/coconut-svsm/svsm/pull/1137" target="_blank" rel="noopener">svsm#1137</a> — migrate kernel CPUID detection onto the crate (merged)</li>
+            <li><a href="https://github.com/coconut-svsm/cpufeature/pull/3" target="_blank" rel="noopener">cpufeature#3</a> — GitHub Actions for Rust, PR compliance, and dependency review (merged)</li>
+          </ul>
+
+          <p><strong>Phase 2 — assign a PCID to each address space.</strong> <a href="https://github.com/coconut-svsm/svsm/pull/1157" target="_blank" rel="noopener">svsm#1157</a> gives every <code>TaskMM</code> a <code>TaskPcid</code> from a global pool of 4096 IDs. Tasks that share an address space share its PCID. PCID 0 stays reserved for per-CPU transitional page tables and as the fallback when the pool is exhausted. CR3 bit 63 is set on PCID-tagged roots so a switch does not flush that PCID's entries.</p>
+          <p>The pool needed its own allocator. A spinlock around a tree bitmap is the wrong shape for 4096 one-bit IDs that are claimed on address-space create and released on destroy. I designed <code>FlatBitmapAllocator</code> for that case: a flat array of atomic words, one bit per slot. Allocation walks until it finds a word that is not all-ones, takes the complement so free bits show up as ones, picks the first with <code>trailing_zeros</code>, and claims it with a CAS. A lost race retries the same word. Free is a <code>fetch_and</code> that clears the bit. Padding bits past capacity are marked used at construction so they can never be handed out. Freeing a PCID is RAII: when the address space is destroyed, <code>TaskPcid::drop</code> first broadcasts a PCID-targeted TLB shootdown on every CPU, then returns the bit to the pool. That keeps the invariant that a recycled ID has no live translations under its tag. This PR is under review and is the last piece I expect to land from the summer.</p>
+
+          <p><strong>Related kernel work.</strong> Before the PCID series, I added <a href="https://github.com/coconut-svsm/svsm/pull/1097" target="_blank" rel="noopener">svsm#1097</a> <code>SecretSlice</code> — a <code>Box&lt;[u8]&gt;</code> wrapper that zeroes attestation secrets on drop so decrypted key material does not linger in memory.</p>
+
+          <h4>What was hard</h4>
+          <p>The encodings for INVPCID and INVLPGB are easy to get silently wrong. I used Linux as the reference: <code>arch/x86/include/asm/invpcid.h</code> for the 16-byte descriptor and type-in-GPR convention, and <code>arch/x86/include/asm/tlb.h</code> for INVLPGB's RAX/ECX/EDX packing (including <code>INVLPGB_FLAG_ASID</code> and <code>pcid &lt;&lt; 16 | asid</code>).</p>
+
+          <p>Ownership also moved during review. v1 hung the PCID on <code>Task</code>. Review feedback pushed it onto <code>TaskMM</code>, which is the right model: threads of the same task must share a tag. The allocator went from a <code>[bool; 4096]</code> behind a spinlock, to a tree bitmap, and finally to the atomic flat bitmap that is in the PR now. Feature bits for Invlpgb, Pcid, and Invpcid were rebased onto the new crate mid-series so the PCID work and the CPUID work stay on one path.</p>
+          <p>Thanks to Jörg Rödel, who pinned this during review. On Intel, <code>INVLPG</code> only invalidates the linear address in the PCID currently loaded on that CPU. There is no INVPCID type that drops one address from every PCID. So if a task runs on CPU A, migrates to CPU B, and then unmaps a page, CPU A can keep the old translation under the task's PCID while it is running someone else. The next CR3 write that keeps bit 63 set will not flush that PCID, and the task can reuse the stale entry when it returns. Mapping updates have to shoot down the owning address space's PCID on every CPU, and that shootdown has to finish before the physical page is freed. Until every VMR path does that, CR3 bit 63 stays clear so a switch still drops non-global entries the safe way.</p>
+
+          <h4>What is left</h4>
+          <p>Phase 2 is in review, not merged. Until <a href="https://github.com/coconut-svsm/svsm/pull/1157" target="_blank" rel="noopener">#1157</a> lands, live task roots still share the untagged flush behavior on context switch.</p>
+          <p>A patch is also still open on <a href="https://gitlab.com/x86-cpuid.org/x86-cpuid-db" target="_blank" rel="noopener">x86-cpuid-db</a>. It adds a generator for COCONUT-specific CPUID leaves so <a href="https://github.com/coconut-svsm/cpufeature" target="_blank" rel="noopener">cpufeature</a> can consume those descriptors from upstream. Until that lands, I am maintaining a <a href="https://github.com/tanish111/x86-cpuid-db" target="_blank" rel="noopener">downstream fork</a> to generate them.</p>
+
+          <p>A year ago the work was invisible to GSoC's records. This summer it is the opposite: a crate that other COCONUT code can depend on, a kernel that no longer hand-maintains CPUID layouts, and a PCID allocator that makes cheaper context switches possible. That is the work I am submitting.</p>
+
+          <h4>Acknowledgements</h4>
+          <p>Thanks to my mentors, Jörg Rödel and Luigi Leonardi, for the reviews, the design discussions, and the patience this summer. Thanks to Google for sponsoring the work through Google Summer of Code. Thanks also to the other COCONUT-SVSM reviewers, Stefano Garzarella, Jon Lange, Oliver Steffen, and Peter Fang, whose comments shaped the patches that landed and the ones still in flight.</p>
+        </div>
+
+        <div class="blog-post-links">
+          <a href="https://github.com/coconut-svsm/svsm/commits/main/?author=tanish111" target="_blank" rel="noopener">SVSM commits</a>
+          <a href="https://github.com/coconut-svsm/cpufeature" target="_blank" rel="noopener">cpufeature crate</a>
+          <a href="https://github.com/coconut-svsm/svsm/pull/1157" target="_blank" rel="noopener">PCID PR #1157</a>
+          <a href="https://github.com/coconut-svsm/svsm/pull/1137" target="_blank" rel="noopener">CPUID migration #1137</a>
+          <a href="https://github.com/coconut-svsm/svsm/pull/1097" target="_blank" rel="noopener">SecretSlice #1097</a>
+        </div>
+      </article>
+
+      <article class="blog-post">
+        <div class="blog-post-meta">
           Published on June 15, 2025
         </div>
         <h3 class="blog-post-title">The Phantom Project of Google Summer of Code: My Journey Beyond the Recognition and Stipend</h3>

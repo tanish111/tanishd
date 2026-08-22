@@ -175,6 +175,13 @@ a:hover { text-decoration: underline; }
   margin-bottom: 20px;
 }
 
+.blog-post-content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 28px 0 10px 0;
+  color: var(--accent);
+}
+
 .blog-post-content p {
   margin-bottom: 16px;
 }
@@ -399,7 +406,7 @@ a:hover { text-decoration: underline; }
 
 .gg-row {
   display: grid;
-  grid-template-columns: 68px 28px 28px 1fr;
+  grid-template-columns: 68px 28px 28px 28px 1fr;
   align-items: center;
   min-height: 32px;
   position: relative;
@@ -408,6 +415,7 @@ a:hover { text-decoration: underline; }
 .gg-row:hover { background: #f9fafb; border-radius: 4px; }
 
 .gg-date {
+  grid-column: 1;
   font-size: 11px;
   color: var(--muted);
   white-space: nowrap;
@@ -437,6 +445,7 @@ a:hover { text-decoration: underline; }
 
 .gg-dot-qemu  { background: #2563eb; box-shadow: 0 0 0 1px #2563eb; }
 .gg-dot-mcp   { background: #7c3aed; box-shadow: 0 0 0 1px #7c3aed; }
+.gg-dot-svsm  { background: #0d9488; box-shadow: 0 0 0 1px #0d9488; }
 
 .gg-line {
   position: absolute;
@@ -451,10 +460,21 @@ a:hover { text-decoration: underline; }
 .gg-line-qemu        { background: #2563eb; }
 .gg-line-mcp         { background: #7c3aed; }
 .gg-line-mcp-faint   { background: #c4b5fd; }
+.gg-line-svsm        { background: #0d9488; }
+.gg-line-svsm-faint  { background: #5eead4; }
 
-.gg-row-last .gg-line { display: none; }
+.gg-line-end,
+.gg-row-last .gg-line {
+  bottom: 50%;
+}
+
+.gg-col-qemu { grid-column: 2; }
+.gg-col-mcp  { grid-column: 3; }
+.gg-col-svsm { grid-column: 4; }
 
 .gg-msg {
+  grid-column: 5;
+  min-width: 0;
   padding: 6px 0 6px 10px;
   color: var(--text);
   line-height: 1.4;
@@ -478,11 +498,16 @@ a:hover { text-decoration: underline; }
   vertical-align: middle;
 }
 
+.gg-tag-review {
+  background: #fef3c7;
+  color: #92400e;
+}
+
 .gg-row-merge .gg-msg a { color: var(--accent); }
 
 @media (max-width: 480px) {
-  .gg-lanes { grid-template-columns: 52px 24px 24px 1fr; }
-  .gg-row   { grid-template-columns: 52px 24px 24px 1fr; }
+  .gg-lanes { grid-template-columns: 52px 22px 22px 22px 1fr; }
+  .gg-row   { grid-template-columns: 52px 22px 22px 22px 1fr; }
   .gg-date  { font-size: 10px; }
 }
 
