@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="assets/favicon.ico" />
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script>
     window.MathJax = {
@@ -44,7 +43,7 @@
     <section class="hero">
       <p>
         I am a software engineer interested in <strong>Systems Programming</strong>, <strong>Open Source</strong> development, and <strong>Compiler &amp; Toolchain</strong> infrastructure.
-        I enjoy working at the systems level — building performance-critical software, contributing to large open-source codebases, and shipping reliable backend services.
+        I enjoy working at the systems level, building performance-critical software, contributing to large open-source codebases, and shipping reliable backend services.
       </p>
 
       <div class="oss-highlight">
@@ -76,15 +75,74 @@
           <div class="gg-legend">
             <span class="gg-legend-dot" style="background:#2563eb;"></span><span class="gg-legend-name" style="color:#2563eb;">QEMU</span>
             <span class="gg-legend-dot" style="background:#7c3aed; margin-left:16px;"></span><span class="gg-legend-name" style="color:#7c3aed;">MCP Rust SDK</span>
+            <span class="gg-legend-dot" style="background:#0d9488; margin-left:16px;"></span><span class="gg-legend-name" style="color:#0d9488;">SVSM</span>
           </div>
 
           <!-- Rows: each row = one commit -->
+          <div class="gg-row">
+            <div class="gg-date">Aug 2026</div>
+            <div class="gg-col gg-col-qemu"></div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm">
+              <div class="gg-dot gg-dot-svsm"></div>
+              <div class="gg-line gg-line-svsm"></div>
+            </div>
+            <div class="gg-msg"><a href="https://github.com/coconut-svsm/svsm/pull/1157" target="_blank" rel="noopener">#1157 task: assign a PCID to each task page-table root</a> <span class="gg-tag gg-tag-review">in review</span></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">Aug 2026</div>
+            <div class="gg-col gg-col-qemu"></div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm">
+              <div class="gg-dot gg-dot-svsm"></div>
+              <div class="gg-line gg-line-svsm"></div>
+            </div>
+            <div class="gg-msg"><a href="https://github.com/coconut-svsm/cpufeature/pull/3" target="_blank" rel="noopener">#3 .github: add GitHub Actions workflows for Rust, PR compliance, and dependency review</a></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">Jul 2026</div>
+            <div class="gg-col gg-col-qemu"></div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm">
+              <div class="gg-dot gg-dot-svsm"></div>
+              <div class="gg-line gg-line-svsm"></div>
+            </div>
+            <div class="gg-msg"><a href="https://github.com/coconut-svsm/svsm/pull/1137" target="_blank" rel="noopener">#1137 kernel: migrate CPUID feature detection to cpufeature crate</a></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">Jul 2026</div>
+            <div class="gg-col gg-col-qemu"></div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm">
+              <div class="gg-dot gg-dot-svsm"></div>
+              <div class="gg-line gg-line-svsm"></div>
+            </div>
+            <div class="gg-msg"><a href="https://github.com/coconut-svsm/cpufeature/pull/1" target="_blank" rel="noopener">#1 Add initial cpufeature crate for x86 CPUID feature descriptors</a></div>
+          </div>
+
+          <div class="gg-row">
+            <div class="gg-date">Jun 2026</div>
+            <div class="gg-col gg-col-qemu"></div>
+            <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm">
+              <div class="gg-dot gg-dot-svsm"></div>
+              <div class="gg-line gg-line-svsm"></div>
+            </div>
+            <div class="gg-msg"><a href="https://github.com/coconut-svsm/svsm/pull/1097" target="_blank" rel="noopener">#1097 kernel/attest: add SecretSlice for zeroed attestation secrets</a></div>
+          </div>
+
           <div class="gg-row">
             <div class="gg-date">Mar 2026</div>
             <div class="gg-col gg-col-qemu"></div>
             <div class="gg-col gg-col-mcp">
               <div class="gg-dot gg-dot-mcp"></div>
               <div class="gg-line gg-line-mcp"></div>
+            </div>
+            <div class="gg-col gg-col-svsm">
+              <div class="gg-line gg-line-svsm-faint"></div>
             </div>
             <div class="gg-msg"><a href="https://github.com/modelcontextprotocol/rust-sdk/pull/706" target="_blank" rel="noopener">#706 docs: add -p mcp-server-examples to build cmd</a></div>
           </div>
@@ -96,6 +154,7 @@
               <div class="gg-dot gg-dot-mcp"></div>
               <div class="gg-line gg-line-mcp"></div>
             </div>
+            <div class="gg-col gg-col-svsm"></div>
             <div class="gg-msg"><a href="https://github.com/modelcontextprotocol/rust-sdk/pull/598" target="_blank" rel="noopener">#598 fix: OpenID Connect discovery per spec-2025-11-25</a></div>
           </div>
 
@@ -106,6 +165,7 @@
               <div class="gg-dot gg-dot-mcp"></div>
               <div class="gg-line gg-line-mcp"></div>
             </div>
+            <div class="gg-col gg-col-svsm"></div>
             <div class="gg-msg"><a href="https://github.com/modelcontextprotocol/rust-sdk/pull/570" target="_blank" rel="noopener">#570 feat: SEP-991 CIMD support for URL-based client IDs</a></div>
           </div>
 
@@ -116,6 +176,7 @@
               <div class="gg-dot gg-dot-mcp"></div>
               <div class="gg-line gg-line-mcp"></div>
             </div>
+            <div class="gg-col gg-col-svsm"></div>
             <div class="gg-msg"><a href="https://github.com/modelcontextprotocol/rust-sdk/pull/551" target="_blank" rel="noopener">#551 feat: SEP-986 tool name format spec</a> &nbsp;<a href="https://github.com/modelcontextprotocol/rust-sdk/pull/541" target="_blank" rel="noopener">#541 fix: WASI linker errors</a></div>
           </div>
 
@@ -129,6 +190,7 @@
             <div class="gg-col gg-col-mcp">
               <div class="gg-line gg-line-mcp-faint"></div>
             </div>
+            <div class="gg-col gg-col-svsm"></div>
             <div class="gg-msg"><a href="https://patchew.org/QEMU/20250919112536.141782-1-pbonzini@redhat.com/" target="_blank" rel="noopener"><strong>PATCH 00/16 — Rust Tracing Support for QEMU merged</strong></a> <span class="gg-tag">16 patches</span></div>
           </div>
 
@@ -139,6 +201,7 @@
               <div class="gg-line gg-line-qemu"></div>
             </div>
             <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm"></div>
             <div class="gg-msg"><a href="https://patchew.org/QEMU/20250806150539.2871-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH v2 0/2 — tracetool: remove no_check_foo() and if(true) blocks</a></div>
           </div>
 
@@ -149,6 +212,7 @@
               <div class="gg-line gg-line-qemu"></div>
             </div>
             <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm"></div>
             <div class="gg-msg"><a href="https://patchew.org/QEMU/20250722114352.3624-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH — tracetool: remove unused vcpu property</a></div>
           </div>
 
@@ -159,6 +223,7 @@
               <div class="gg-line gg-line-qemu"></div>
             </div>
             <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm"></div>
             <div class="gg-msg"><a href="https://patchew.org/QEMU/20250612122718.18863-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH v2 — utils/log: add qemu_log_timestamp()</a> &nbsp; <a href="https://patchew.org/QEMU/20250616201222.6416-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">tracetool cleanup</a></div>
           </div>
 
@@ -169,6 +234,7 @@
               <div class="gg-line gg-line-qemu"></div>
             </div>
             <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm"></div>
             <div class="gg-msg"><a href="https://patchew.org/QEMU/20250528192528.3968-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH — trace/simple: separate hot paths <span class="gg-tag">−6 asm · −23 MB</span></a></div>
           </div>
 
@@ -176,8 +242,10 @@
             <div class="gg-date">Mar 2025</div>
             <div class="gg-col gg-col-qemu">
               <div class="gg-dot gg-dot-qemu"></div>
+              <div class="gg-line gg-line-qemu"></div>
             </div>
             <div class="gg-col gg-col-mcp"></div>
+            <div class="gg-col gg-col-svsm"></div>
             <div class="gg-msg"><a href="https://patchew.org/QEMU/20250319023036.71493-1-tanishdesai37@gmail.com/" target="_blank" rel="noopener">PATCH — fix duplicate symbol error on MacOS build</a></div>
           </div>
 
