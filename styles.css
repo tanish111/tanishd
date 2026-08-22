@@ -406,7 +406,8 @@ a:hover { text-decoration: underline; }
 
 .gg-row {
   display: grid;
-  grid-template-columns: 68px 28px 28px 28px 1fr;
+  grid-template-columns: 68px 28px 28px 28px minmax(200px, 1fr);
+  width: 100%;
   align-items: center;
   min-height: 32px;
   position: relative;
